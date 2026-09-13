@@ -3,3 +3,4 @@ dist
 .DS_Store
 .netlify
 audit.js
+verify_production_live.js
