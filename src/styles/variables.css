@@ -1,0 +1,29 @@
+/* Shared CSS Custom Properties */
+:root {
+  /* Fonts */
+  --font-serif-editorial: 'Italiana', 'Playfair Display', Georgia, serif;
+  --font-serif-romantic: 'Cormorant Garamond', Garamond, Georgia, serif;
+  --font-sans-modern: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif-dramatic: 'Playfair Display', Georgia, serif;
+  --font-display-playful: 'Fraunces', Georgia, serif;
+
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Spacing Scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 5.5rem;
+  --space-3xl: 8rem;
+
+  /* Containers */
+  --container-max: 1200px;
+  --container-narrow: 840px;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}

@@ -1,0 +1,15 @@
+{
+  "name": "wedding-essential-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14",
+    "puppeteer-core": "^24.40.0"
+  }
+}

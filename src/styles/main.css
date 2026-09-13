@@ -1,0 +1,10 @@
+@import './variables.css';
+@import './base.css';
+@import './demo-bar.css';
+
+/* 5 Visual Themes */
+@import './themes/editorial.css';
+@import './themes/romantic.css';
+@import './themes/modern.css';
+@import './themes/dramatic.css';
+@import './themes/playful.css';
