@@ -105,7 +105,7 @@
         <div class="story-grid">
           <div class="story-header">
             <span class="section-kicker">Our Story</span>
-            <h2 class="section-heading">A Decade of Shared Horizons</h2>
+            <h2 class="section-heading">Seven Autumns of Shared Horizons</h2>
           </div>
           <div class="story-content">
             <p class="story-lead">
@@ -140,9 +140,9 @@
             <p class="detail-card-desc">
               We exchange vows enclosed in glass beneath soaring timber beams, surrounded by panoramic views of the Hudson River foliage. Please plan to arrive by 3:15 PM for seated welcome music.
             </p>
-            <a href="https://maps.google.com/?q=Montgomery+Place+Rhinebeck+NY" target="_blank" rel="noopener noreferrer" class="detail-link">
+            <button type="button" class="detail-link" id="demo-map-btn" aria-haspopup="dialog">
               View Map &amp; Directions &rarr;
-            </a>
+            </button>
           </article>
 
           <!-- Reception Card -->
@@ -230,13 +230,28 @@
           For travel inquiries, dietary questions, or day-of assistance, please contact our estate coordinator.
         </p>
         <div>
-          <a href="mailto:elena-julian@dscg-demo.com" class="contact-badge">
-            elena-julian@dscg-demo.com
-          </a>
+          <button type="button" class="contact-badge" id="demo-contact-btn" aria-haspopup="dialog">
+            Contact the Wedding Coordinator
+          </button>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Accessible Demo Notice Modal -->
+  <dialog id="demo-modal" class="demo-dialog" aria-labelledby="demo-modal-title" aria-describedby="demo-modal-desc">
+    <div class="demo-dialog-container">
+      <div class="demo-dialog-header">
+        <span class="demo-dialog-badge">Demo Notice</span>
+        <button type="button" class="demo-dialog-close" id="demo-modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <h3 id="demo-modal-title" class="demo-dialog-title">Demonstration Notice</h3>
+      <p id="demo-modal-desc" class="demo-dialog-desc"></p>
+      <div class="demo-dialog-actions">
+        <button type="button" class="demo-dialog-dismiss" id="demo-modal-dismiss">Dismiss</button>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Unobtrusive Demo Disclosure Footer -->
   <footer class="demo-footer">

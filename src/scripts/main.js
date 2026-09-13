@@ -65,7 +65,7 @@ function initStyleSwitcher() {
   }
 }
 
-// Smooth scroll offset adjustment for top bar + sticky nav
+// Smooth scroll offset adjustment with prefers-reduced-motion check
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
@@ -79,9 +79,12 @@ function initSmoothScroll() {
         const elementPosition = targetEl.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - navHeight;
 
+        // Respect prefers-reduced-motion media query
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth',
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
         });
 
         // Update URL hash without jump
@@ -91,7 +94,72 @@ function initSmoothScroll() {
   });
 }
 
+// Accessible Demo Notice Dialog Controller
+function initDemoModal() {
+  const dialog = document.getElementById('demo-modal');
+  const titleEl = document.getElementById('demo-modal-title');
+  const descEl = document.getElementById('demo-modal-desc');
+  const closeBtn = document.getElementById('demo-modal-close');
+  const dismissBtn = document.getElementById('demo-modal-dismiss');
+
+  if (!dialog) return;
+
+  function openModal(title, message) {
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = message;
+
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    } else {
+      dialog.setAttribute('open', '');
+    }
+  }
+
+  function closeModal() {
+    if (typeof dialog.close === 'function') {
+      dialog.close();
+    } else {
+      dialog.removeAttribute('open');
+    }
+  }
+
+  // Map directions button
+  const mapBtn = document.getElementById('demo-map-btn');
+  if (mapBtn) {
+    mapBtn.addEventListener('click', () => {
+      openModal(
+        'Venue Directions',
+        'Interactive venue directions are included on live client sites. This location is fictional for the DSCG demonstration.'
+      );
+    });
+  }
+
+  // Contact wedding coordinator button
+  const contactBtn = document.getElementById('demo-contact-btn');
+  if (contactBtn) {
+    contactBtn.addEventListener('click', () => {
+      openModal(
+        'Coordinator Contact',
+        'Contact functionality is disabled in this fictional demonstration.'
+      );
+    });
+  }
+
+  // Close buttons
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (dismissBtn) dismissBtn.addEventListener('click', closeModal);
+
+  // Close on clicking backdrop outside container
+  dialog.addEventListener('click', (e) => {
+    const container = dialog.querySelector('.demo-dialog-container');
+    if (container && !container.contains(e.target)) {
+      closeModal();
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initStyleSwitcher();
   initSmoothScroll();
+  initDemoModal();
 });

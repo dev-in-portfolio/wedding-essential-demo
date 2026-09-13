@@ -4,3 +4,4 @@ dist
 .netlify
 audit.js
 verify_production_live.js
+comprehensive_audit.js
