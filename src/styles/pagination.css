@@ -1,0 +1,132 @@
+/* Multi-page presentation controls for the wedding demo */
+.demo-page-nav {
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid var(--theme-border, var(--color-border, #DEDAD4));
+  border-bottom: 1px solid var(--theme-border, var(--color-border, #DEDAD4));
+  background: var(--theme-surface, var(--bg-surface, #FFFFFF));
+  color: var(--theme-text, var(--text-primary, #141414));
+  padding: 0.8rem 1rem;
+}
+
+.demo-page-nav-inner,
+.demo-page-controls {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+}
+
+.demo-page-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.demo-page-nav-label {
+  color: var(--theme-accent, var(--color-accent, #222222));
+  font-weight: 700;
+}
+
+.demo-page-status {
+  color: var(--theme-text-muted, var(--text-muted, #66625D));
+  white-space: nowrap;
+}
+
+.demo-page-links {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0.1rem 0 0.2rem;
+  scrollbar-width: thin;
+}
+
+.demo-page-link {
+  flex: 0 0 auto;
+  border: 1px solid var(--theme-border, var(--color-border, #DEDAD4));
+  border-radius: var(--theme-radius-pill, 999px);
+  color: var(--theme-text-muted, var(--text-muted, #66625D));
+  padding: 0.42rem 0.8rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  transition: color var(--transition-fast, 0.15s ease), background-color var(--transition-fast, 0.15s ease), border-color var(--transition-fast, 0.15s ease);
+}
+
+.demo-page-link:hover,
+.demo-page-link:focus-visible {
+  color: var(--theme-text, var(--text-primary, #141414));
+  border-color: var(--theme-accent, var(--color-accent, #222222));
+}
+
+.demo-page-link.is-active {
+  background: var(--theme-accent, var(--color-accent, #222222));
+  border-color: var(--theme-accent, var(--color-accent, #222222));
+  color: var(--theme-on-accent, #FFFFFF);
+  font-weight: 700;
+}
+
+main.paged-content > section[hidden] {
+  display: none !important;
+}
+
+main.paged-content > section:not([hidden]) {
+  animation: demo-page-enter 0.32s ease both;
+}
+
+.demo-page-controls {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1rem 2.4rem;
+}
+
+.demo-page-control {
+  color: var(--theme-accent, var(--color-accent, #222222));
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.demo-page-control:hover,
+.demo-page-control:focus-visible {
+  text-decoration: underline;
+}
+
+.demo-page-control-next {
+  justify-self: end;
+  text-align: right;
+}
+
+.demo-page-control[hidden] {
+  display: none;
+}
+
+.demo-page-control-home {
+  justify-self: center;
+  color: var(--theme-text-muted, var(--text-muted, #66625D));
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@keyframes demo-page-enter {
+  from { opacity: 0; transform: translateY(0.65rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .demo-page-nav { padding-inline: 0.75rem; }
+  .demo-page-nav-header { font-size: 0.65rem; }
+  .demo-page-links { margin-inline: -0.25rem; padding-inline: 0.25rem; }
+  .demo-page-controls { padding-inline: 0.75rem; }
+  .demo-page-control { font-size: 0.7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main.paged-content > section:not([hidden]) { animation: none; }
+}
