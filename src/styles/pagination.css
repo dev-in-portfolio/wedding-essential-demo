@@ -18,7 +18,7 @@
 .demo-page-nav-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   margin-bottom: 0.55rem;
   font-size: 0.72rem;
@@ -29,11 +29,6 @@
 .demo-page-nav-label {
   color: var(--theme-accent, var(--color-accent, #222222));
   font-weight: 700;
-}
-
-.demo-page-status {
-  color: var(--theme-text-muted, var(--text-muted, #66625D));
-  white-space: nowrap;
 }
 
 .demo-page-links {

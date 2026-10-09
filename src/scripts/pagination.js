@@ -45,7 +45,6 @@ function initPagination() {
     <div class="demo-page-nav-inner">
       <div class="demo-page-nav-header">
         <span class="demo-page-nav-label">Explore this wedding site</span>
-        <span class="demo-page-status" aria-live="polite"></span>
       </div>
       <div class="demo-page-links"></div>
     </div>`;
@@ -114,9 +113,6 @@ function initPagination() {
       if (active) link.setAttribute('aria-current', 'page');
       else link.removeAttribute('aria-current');
     });
-
-    const status = pageNav.querySelector('.demo-page-status');
-    if (status) status.textContent = `Page ${pageIndex + 1} of ${pages.length}`;
 
     const prev = controls.querySelector('.demo-page-control-prev');
     const next = controls.querySelector('.demo-page-control-next');
